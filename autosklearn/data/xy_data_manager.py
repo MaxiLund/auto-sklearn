@@ -22,7 +22,7 @@ class XYDataManager(AbstractDataManager):
             self.info['has_missing'] = np.all(np.isfinite(X.data))
         else:
             self.info['is_sparse'] = 0
-            self.info['has_missing'] = np.all(np.isfinite(X))
+            self.info['has_missing'] = True #np.all(np.isfinite(X))
 
         label_num = {
             REGRESSION: 1,

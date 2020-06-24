@@ -919,7 +919,7 @@ class BaseAutoML(AutoML):
 
     def _check_X(self, X):
         X = sklearn.utils.check_array(X, accept_sparse="csr",
-                                      force_all_finite=False)
+                                      force_all_finite=False, dtype=None)
         if scipy.sparse.issparse(X):
             X.sort_indices()
         return X

@@ -15,14 +15,14 @@ class CategoricalImputation(AutoSklearnPreprocessingAlgorithm):
         import sklearn.impute
 
         self.preprocessor = sklearn.impute.SimpleImputer(
-            strategy='constant', fill_value=2, copy=False)
+            strategy='most_frequent', copy=False)
         self.preprocessor.fit(X)
         return self
 
     def transform(self, X):
         if self.preprocessor is None:
             raise NotImplementedError()
-        X = self.preprocessor.transform(X).astype(int)
+        X = self.preprocessor.transform(X)
         return X
 
     def fit_transform(self, X, y=None):
